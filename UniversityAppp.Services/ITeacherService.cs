@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using UniversityAppp.Models;
 
 public interface ITeacherService
 {
