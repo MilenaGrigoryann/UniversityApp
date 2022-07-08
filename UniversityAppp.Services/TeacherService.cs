@@ -1,21 +1,18 @@
-﻿using System;
+using System;
+using UniversityAppp.Models;
 
 public class TeacherService:ITeacherService
 {
-
     static List<Teacher> _teachers = new List<Teacher>();
-
     public void Create(Teacher? teacher)
     {
         if (teacher != null)
             _teachers.Add(teacher);
     }
-
     public void Delete(Guid id)
     {
         _teachers.RemoveAll(x => x.Id == id);
     }
-
     public Teacher? Get(Guid id)
         => _teachers.FirstOrDefault(x => x.Id == id);
 
@@ -27,8 +24,9 @@ public class TeacherService:ITeacherService
         Teacher? currentTeacher = _teachers.FirstOrDefault(s => s.Id == teacher?.Id);
         int index = -1;
         if (currentTeacher != null)
-            index = _students.IndexOf(currentTeacher);
+            index = _teachers.IndexOf(currentTeacher);
         if (teacher != null)
-            _students[index] = teacher;
+            _teachers[index] = teacher;
     }
 }
+
